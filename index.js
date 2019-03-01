@@ -3,8 +3,8 @@ let store = {drivers: [], passengers: [], trips: []};
 let driverId = 0;
 
 class Driver {
-  constructor(name,passenger) {
-    this.id = ++driverId;
+  constructor(name, passenger) {
+    this.id = driverId++;
     this.name = name;
     if (passenger) {
       this.passengerId = passenger.id;
@@ -15,7 +15,7 @@ class Driver {
 
   trips () {
     return store.trips.filter(
-      function(trip) {
+      trip=> {
         return trip.driverId === this.id;
       }.bind(this));
     }
